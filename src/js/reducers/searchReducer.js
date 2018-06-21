@@ -1,7 +1,7 @@
 const defaultState = {
   searchText: '',
   pending: false,
-  movies: []
+  movies: null
 };
 
 export default function searchReducer (state = defaultState, action) {
@@ -25,7 +25,8 @@ export default function searchReducer (state = defaultState, action) {
     case 'SEARCH_CLICK_FULFILLED': {
       return {
         ...state,
-        pending: false
+        pending: false,
+        movies: payload.Search
       };
     }
 
