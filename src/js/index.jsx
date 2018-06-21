@@ -8,7 +8,7 @@ import App from './app';
 import store from './rootStore';
 
 /* eslint-disable no-underscore-dangle */
-// moving below to rootStore**************
+// ********************moving below to separate rootStore file**************
 // const composeEnhancers =  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 // const store = createStore(rootReducer, composeEnhancers(
