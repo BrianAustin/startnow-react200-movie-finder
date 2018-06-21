@@ -59,8 +59,9 @@ class MovieSearchContainer extends React.Component {
           </div>
           {/* Search bar end above */}
           {/* search result display card start below */}
-          {this.props.movies.map(movie =>
-              <div className='card col-md-3'>
+          <div className='row col-md-12'>
+            {this.props.movies.map(movie =>
+              <div className='card border-dark col-md-3'>
                 <img className='card-img-top' width='200px' height='300px'
                   alt='movie poster'
                   src={movie.Poster}
@@ -74,7 +75,8 @@ class MovieSearchContainer extends React.Component {
                   >More Info</button>
                 </div>
               </div>
-          )}
+            )}
+          </div>
           {/* search result display card end above */}
 
           {/* Holding div end below   */}
