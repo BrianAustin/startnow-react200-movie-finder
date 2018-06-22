@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 import {
   updateSearchText,
@@ -35,7 +36,7 @@ class MovieSearchContainer extends React.Component {
     if(this.props.movies != null) {
       toDisplay = 
         <div className='col-md-12'>
-          <h1 className='text-center'>Movie Finder</h1>
+          <h1 className='text-center text-white display-4'>Movie Finder</h1>
           {/* Search bar start below */}
           <div className='input-group mb-4'>
             <input
@@ -61,14 +62,15 @@ class MovieSearchContainer extends React.Component {
           {/* search result display card start below */}
           <div className='row col-md-12'>
             {this.props.movies.map(movie =>
-              <div className='card border-dark col-md-3'>
+              <div className='card border-dark col-md-3' key={movie.imdbID}>
                 <img className='card-img-top' width='200px' height='300px'
                   alt='movie poster'
                   src={movie.Poster}
                 />
                 <div className='card-body'>
-                  <h5 className='card-title'>{movie.Title}</h5>
+                  <h5 className='card-title'><u>{movie.Title}</u></h5>
                   <p className='card-text'>{movie.Year}</p>
+                  <p className='card-text'><small>Type: {movie.Type}</small></p>
 
                   <button className='btn btn-primary'
                     type='button'
@@ -84,7 +86,7 @@ class MovieSearchContainer extends React.Component {
     } else {
       toDisplay = 
         <div className='col-md-12'>
-          <h1 className='text-center'>Movie Finder</h1>
+          <h1 className='text-center text-white display-4'>Movie Finder</h1>
           {/* Search bar start below */}
           <div className='input-group mb-4'>
             <input
