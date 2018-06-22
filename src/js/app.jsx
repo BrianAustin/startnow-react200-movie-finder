@@ -5,8 +5,7 @@ import {
 } from 'react-router-dom';
 
 import MovieSearchContainer from './containers/searchIndex';
-// HEY, REMEMBER TO CHANGE THE BELOW FILE PATH TO THE INDEX
-import MovieDetailContainer from './containers/MovieDetailContainer';
+import MovieDetailContainer from './containers/detailIndex';
 
 export default class App extends React.Component {
   render() {

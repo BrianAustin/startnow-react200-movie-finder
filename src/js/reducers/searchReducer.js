@@ -1,7 +1,9 @@
 const defaultState = {
   searchText: '',
   pending: false,
-  movies: null
+  movies: null,
+  moreInfoPending: false,
+  detailMovies: null
 };
 
 export default function searchReducer (state = defaultState, action) {
@@ -34,6 +36,28 @@ export default function searchReducer (state = defaultState, action) {
       return {
         ...state,
         pending: false
+      };
+    }
+
+    case 'MORE_INFO_CLICK_PENDING': {
+      return {
+        ...state,
+        moreInfoPending: true
+      };
+    }
+
+    case 'MORE_INFO_CLICK_FULFILLED': {
+      return {
+        ...state,
+        moreInfoPending: false,
+        detailMovies: payload
+      };
+    }
+
+    case 'MORE_INFO_CLICK_REJECTED': {
+      return {
+        ...state,
+        moreInfoPending: false
       };
     }
 

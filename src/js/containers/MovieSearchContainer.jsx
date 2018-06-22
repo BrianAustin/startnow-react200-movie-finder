@@ -33,7 +33,7 @@ class MovieSearchContainer extends React.Component {
     const searchText = this.props.searchText;
     let toDisplay;
 
-    if(this.props.movies != null) {
+    if(this.props.movies != null && this.props.pending === false) {
       toDisplay = 
         <div className='col-md-12'>
           <h1 className='text-center text-white display-4'>Movie Finder</h1>
@@ -60,7 +60,7 @@ class MovieSearchContainer extends React.Component {
           </div>
           {/* Search bar end above */}
           {/* search result display card start below */}
-          <div className='row col-md-12'>
+          <div className='row col-md-12 justify-content-center'>
             {this.props.movies.map(movie =>
               <div className='card border-dark col-md-3' key={movie.imdbID}>
                 <img className='card-img-top' width='200px' height='300px'
@@ -83,7 +83,40 @@ class MovieSearchContainer extends React.Component {
 
           {/* Holding div end below   */}
         </div>;
-    } else {
+    } else if (this.props.movie == null && this.props.pending === true) {
+      toDisplay = 
+        <div className='col-md-12'>
+          <h1 className='text-center text-white display-4'>Movie Finder</h1>
+          {/* Search bar start below */}
+          <div className='input-group mb-4'>
+            <input
+              type='text'
+              className='form-control'
+              maxLength='30'
+              placeholder='Enter a movie title'
+              aria-label='Enter a movie title'
+              aria-describedby='basic-addon2'
+              onChange={this.handleSearchInput}
+            />
+            <div className='input-group-append'>
+              <button
+                className='btn text-black search-button'
+                type='button'
+                value={searchText}
+                onClick={this.handleSearchClick}
+              >Go!
+            </button>
+            </div>
+          </div>
+          {/* Search bar end above */}
+
+          <div className='col-md-6 offset-md-3 mt-5 text-black'>
+            <h2 className='display-1'>Working On It!! Just Chill...</h2>
+          </div>
+
+          {/* Holding div end below   */}
+        </div>
+    ;} else {
       toDisplay = 
         <div className='col-md-12'>
           <h1 className='text-center text-white display-4'>Movie Finder</h1>

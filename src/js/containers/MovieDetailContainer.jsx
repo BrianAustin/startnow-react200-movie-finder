@@ -1,5 +1,9 @@
 import React from 'react';
 
+import {
+  moreInfoClick
+} from 'C:/Users/baust/oca/startnow-react200-movie-finder/src/js/actions/searchActions.js';
+
 class MovieDetailContainer extends React.Component {
   constructor(props) {
     super(props);

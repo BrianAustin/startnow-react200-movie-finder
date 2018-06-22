@@ -16,3 +16,13 @@ export function searchClick(searchText) {
     .catch(err => console.log(err))
   };
 }
+
+export function moreInfoClick(imdbId) {
+  const apiKey = '8730e0e';
+  return {
+    type: 'MORE_INFO_CLICK',
+    payload: axios.get('http://www.omdbapi.com/?i=' + imdbId + '&apikey=' + apiKey)
+    .then(response => response.data)
+    .catch(err => console.log(err))
+  };
+}
