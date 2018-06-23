@@ -1,9 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 
 import {
   updateSearchText,
-  searchClick
+  searchClick,
+  moreInfoClick
 } from 'C:/Users/baust/oca/startnow-react200-movie-finder/src/js/actions/searchActions.js';
 
 class MovieSearchContainer extends React.Component {
@@ -12,6 +13,7 @@ class MovieSearchContainer extends React.Component {
 
     this.handleSearchInput = this.handleSearchInput.bind(this);
     this.handleSearchClick = this.handleSearchClick.bind(this);
+    this.handleMoreInfoClick = this.handleMoreInfoClick.bind(this);
   }
 
   handleSearchInput(event) {
@@ -27,6 +29,12 @@ class MovieSearchContainer extends React.Component {
     } else {
       dispatch(searchClick(searchText));
     }
+  }
+
+  handleMoreInfoClick(event) {
+    const { dispatch } = this.props;
+    const { value } = event.target;
+    dispatch(moreInfoClick(value));
   }
 
   render() {
@@ -71,10 +79,13 @@ class MovieSearchContainer extends React.Component {
                   <h5 className='card-title'><u>{movie.Title}</u></h5>
                   <p className='card-text'>{movie.Year}</p>
                   <p className='card-text'><small>Type: {movie.Type}</small></p>
-
-                  <button className='btn btn-primary'
-                    type='button'
-                  >More Info</button>
+                  <Link to={`/movie/${movie.Title}`}>
+                    <button className='btn btn-primary'
+                      type='button'
+                      value={movie.imdbID}
+                      onClick={this.handleMoreInfoClick}
+                    >More Info</button>
+                  </Link>  
                 </div>
               </div>
             )}

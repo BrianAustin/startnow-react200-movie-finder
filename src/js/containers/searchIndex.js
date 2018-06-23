@@ -5,7 +5,9 @@ function mapStoreToProps(store) {
   return {
     searchText: store.search.searchText,
     pending: store.search.pending,
-    movies: store.search.movies
+    movies: store.search.movies,
+    moreInfoPending: store.search.moreInfoPending,
+    detailMovies: store.search.detailMovies
   };
 }
 
