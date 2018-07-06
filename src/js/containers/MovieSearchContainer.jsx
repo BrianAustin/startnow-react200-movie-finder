@@ -50,6 +50,7 @@ class MovieSearchContainer extends React.Component {
             <input
               type='text'
               className='form-control'
+              name='search-bar'
               maxLength='30'
               placeholder='Enter a movie title'
               aria-label='Enter a movie title'
@@ -59,6 +60,7 @@ class MovieSearchContainer extends React.Component {
             <div className='input-group-append'>
               <button
                 className='btn text-black search-button'
+                name='search-button'
                 type='button'
                 value={searchText}
                 onClick={this.handleSearchClick}
