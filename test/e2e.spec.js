@@ -26,7 +26,7 @@ describe('express', () => {
     it('should contain an <h1> element for the page title', () => { 
       nightmare
       .goto(url)
-        .evaluate(() => document.querySelector('h1').innerText)
+        .evaluate(() => document.querySelector('h1').name)
         .then(headerText => {
           expect(headerText).to.not.be.null;
           expect(headerText).to.equal('Movie Finder');
